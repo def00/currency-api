@@ -25,7 +25,25 @@ class CurrencyTest extends TestCase
         $this->seed();
 
         $response = $this->get('/currencies/' . $id);
-        $response->assertStatus(404);
+        $response->assertStatus($code);
+    }
+
+
+    public function testExchange()
+    {
+        $this->seed();
+
+        $response = $this->post('/exchange', [
+            'from'   => 'USD',
+            'to'     => 'EUR',
+            'amount' => 100.0
+        ]);
+
+        $response->assertStatus(200);
+        $response->assertSee('amount');
+        $response->assertSee('from');
+        $response->assertSee('to');
+
     }
 
     public function currency()

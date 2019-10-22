@@ -14,6 +14,7 @@ class CurrencySeeder extends Seeder
     {
         $currencies = \json_decode($this->getJson(), true);
         Currency::create([
+            'id'     => 1,
             'rate'   => '1.00',
             'symbol' => 'PLN',
             'name'   => 'Polski złoty',
