@@ -10,3 +10,8 @@
  
 ## Running tests
  - exec `php ./vendor/bin/phpunit` in your app container
+
+## Endpoints
+ - `GET /currencies` - lists all currencies in DB
+ - `GET /currenecirs/{id}` - lists all exchange rates for the currency
+ - `POST /exchange` Data: `{from: String, to: String, amount: float}` 
